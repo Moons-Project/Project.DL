@@ -1,18 +1,27 @@
-rm \q "D:\Desktop\Android"
-mkdir "D:\Desktop\Android"
-
-# :: set your own Unity path
-# set unity="D:\Program Files (x86)\Unity\Editor\Unity.exe"
-# :: -debug or -release
-# set debugParam=-debug
-
-# set projectPath=%~dp0
-
-# echo "Start Build Unity to Apk"
-
-# %unity% -batchmode -projectPath %projectPath% -executeMethod CommandBuild.PreBuild %debugParam% -quit -logFile ./PreBuild.log
-# %unity% -batchmode -projectPath %projectPath% -executeMethod CommandBuild.Build %debugParam% -android -quit -logFile ./BuildApk.log
+$mypath = Get-Location
 
 
-echo "End Build,please see log PreBuild.log and BuildApk.log"
-Pause
+# # CMD version
+# set mypath=%~dp0
+
+# "C:\App\Unity\Editor\2019.1.0f2\Editor\Unity.exe" ^
+#   -batchmode ^
+#   -logFile stdout.log ^
+#   -projectPath %mypath% ^
+#   -executeMethod Builder.build
+
+# $job = Start-Job -Name "Proc1" -ScriptBlock { 
+  # &"C:\App\Unity\Editor\2019.1.0f2\Editor\Unity.exe" `
+  # -batchmode `
+  # -logFile stdout.log `
+  # -projectPath $mypath `
+  # -executeMethod Builder.build | Out-Null
+# }
+
+# Wait-Job -Job $job
+
+&"C:\App\Unity\Editor\2019.1.0f2\Editor\Unity.exe" `
+-batchmode `
+-logFile stdout.log `
+-projectPath $mypath `
+-executeMethod Builder.build | Out-Null

@@ -20,6 +20,9 @@ public class CommicPlay : MonoBehaviour {
 
   // Start is called before the first frame update
   void Start() {
+    Debug.Log(UIManager.Instance.busy);
+    Debug.Log(AudioManager.Instance.busy);
+
     StartCoroutine(PlayVideo());
   }
 
@@ -32,6 +35,7 @@ public class CommicPlay : MonoBehaviour {
       yield return new WaitForSeconds(message.waitTime);
       // player.Pause();
     }
+
     yield return new WaitForSeconds(1);
     SceneManager.LoadScene(nextScene.assetName, LoadSceneMode.Single);
   }

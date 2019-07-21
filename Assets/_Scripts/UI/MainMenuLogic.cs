@@ -8,8 +8,8 @@ public class MainMenuLogic : MonoBehaviour {
 
   [Header("点不动的按钮们")]
   public GameObject[] disableButtons;
-  [Header("跨场景存在的物体们")]
-  public GameObject[] dontDestroyObjects;
+  // [Header("跨场景存在的物体们")]
+  // public GameObject[] dontDestroyObjects;
 
 
   [Header("开始游戏跳转的场景请拖到这里")]
@@ -23,9 +23,9 @@ public class MainMenuLogic : MonoBehaviour {
       button.GetComponent<Button>().interactable = false;
     }
     // 设置跨场景
-    foreach (var dontDestroyObject in dontDestroyObjects) {
-      DontDestroyOnLoad(dontDestroyObject);
-    }
+    // foreach (var dontDestroyObject in dontDestroyObjects) {
+    //   DontDestroyOnLoad(dontDestroyObject);
+    // }
   }
 
   public void _NaviToFirstScene() {

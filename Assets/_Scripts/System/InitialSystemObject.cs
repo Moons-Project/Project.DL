@@ -10,7 +10,8 @@ public class InitialSystemObject : MonoBehaviour {
 
   void Awake() {
     var prefabPath = systemManagerPrefabPath.ResourcesPath;
-    Debug.Log($"AssetsPath is {prefabPath}");
+    if (UIManager.Instance != null) return;
+    Debug.Log($"Initial SystemManager, AssetsPath is {prefabPath}");
     var prefabGameObject = Resources.Load(prefabPath) as GameObject;
     var systemManager = Instantiate(prefabGameObject);
 

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class MainMenuLogic : MonoBehaviour {
 
-  [Header("点不动的按钮")]
+  [Header("点不动的按钮们")]
   public GameObject[] disableButtons;
-  [Header("跨场景存在的物体")]
-  public GameObject dontDestroyObject;
+  [Header("跨场景存在的物体们")]
+  public GameObject[] dontDestroyObjects;
 
 
   [Header("开始游戏跳转的场景请拖到这里")]
@@ -18,10 +18,14 @@ public class MainMenuLogic : MonoBehaviour {
 
   // Start is called before the first frame update
   void Start() {
+    // 禁用按钮
     foreach (var button in disableButtons) {
       button.GetComponent<Button>().interactable = false;
     }
-    DontDestroyOnLoad(dontDestroyObject);
+    // 设置跨场景
+    foreach (var dontDestroyObject in dontDestroyObjects) {
+      DontDestroyOnLoad(dontDestroyObject);
+    }
   }
 
   public void _NaviToFirstScene() {

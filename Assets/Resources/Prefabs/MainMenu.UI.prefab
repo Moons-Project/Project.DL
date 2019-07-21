@@ -630,7 +630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1580851880552595356}
   m_Layer: 0
-  m_Name: UI
+  m_Name: MainMenu.UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1070,28 +1070,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7547045202639910713, guid: 005b56385b7d1254a823d3ff18e0a271,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7547045202639910713, guid: 005b56385b7d1254a823d3ff18e0a271,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7547045202639910713, guid: 005b56385b7d1254a823d3ff18e0a271,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7547045202639910713, guid: 005b56385b7d1254a823d3ff18e0a271,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: _NaviToFirstScene
       objectReference: {fileID: 0}
     - target: {fileID: 7547045202639910713, guid: 005b56385b7d1254a823d3ff18e0a271,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547045202639910713, guid: 005b56385b7d1254a823d3ff18e0a271,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547045202639910713, guid: 005b56385b7d1254a823d3ff18e0a271,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005b56385b7d1254a823d3ff18e0a271, type: 3}

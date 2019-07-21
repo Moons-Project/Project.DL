@@ -20,7 +20,7 @@ $mypath = Get-Location
 
 # Wait-Job -Job $job
 
-&"C:\App\Unity\Editor\2019.1.0f2\Editor\Unity.exe" `
+&"C:\App\Unity\2019.1.10f1\Editor\Unity.exe" `
 -batchmode `
 -logFile stdout.log `
 -projectPath $mypath `

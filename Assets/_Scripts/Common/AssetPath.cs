@@ -15,7 +15,10 @@ public class AssetPath {
       }
       var prefabPath = this.assetPath.Substring(
         assetPath.IndexOf(kResourcesKey) + kResourcesKey.Length);
-      return prefabPath.Substring(0, prefabPath.LastIndexOf('.'));
+      return prefabPath.Substring(0, 
+        prefabPath.LastIndexOf('.') == -1 ? 
+        prefabPath.Length :
+        prefabPath.LastIndexOf('.'));
     }
   }
 }

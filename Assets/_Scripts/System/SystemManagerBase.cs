@@ -6,7 +6,7 @@ public abstract class SystemManagerBase<T> : MonoBehaviour where T : SystemManag
 
   protected static SystemManagerBase<T> _Instance;
 
-  void Awake() {
+  public void Awake() {
     if (_Instance == null) {
       _Instance = this;
       this.gameObject.transform.parent = null;

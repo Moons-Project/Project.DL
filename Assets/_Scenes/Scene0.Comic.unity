@@ -414,6 +414,12 @@ MonoBehaviour:
   nextScene:
     streamingAsset: {fileID: 102900000, guid: 82c9698c32303a24e81168bbe463db8f, type: 3}
     assetName: Scene0
+  BGMAudio:
+    streamingAsset: {fileID: 8300000, guid: f29646b7537d3d94babc4d828a918f88, type: 3}
+    assetName: "\u6B7B\u6B4C"
+  PeopleSEAudio:
+    streamingAsset: {fileID: 8300000, guid: 4d12f64b1986c3a4fb27e97080dc46df, type: 3}
+    assetName: "0894-\u4EBA\u7FA4\u805A\u96C6\u5608\u6742\u58F0"
 --- !u!1 &543204014
 GameObject:
   m_ObjectHideFlags: 0

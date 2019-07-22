@@ -14,15 +14,14 @@ public class CommicPlay : MonoBehaviour {
 
   public ComicMessage[] messages;
   public AssetName nextScene;
+  public AssetName BGMAudio;
+  public AssetName PeopleSEAudio;
 
 
-  private Vector3 targetPostion;
 
   // Start is called before the first frame update
   void Start() {
-    Debug.Log(UIManager.Instance.busy);
-    Debug.Log(AudioManager.Instance.busy);
-
+    AudioManager.Instance.PlayBGM(BGMAudio.assetName);
     StartCoroutine(PlayVideo());
   }
 

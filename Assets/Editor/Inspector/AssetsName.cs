@@ -23,9 +23,9 @@ public class AssetsNameOnInspector : PropertyDrawer {
     EditorGUI.indentLevel = 0;
     // Calculate rects
     var assetRect = new Rect(position.x, position.y,
-      position.width - 320, position.height);
-    var pathRect = new Rect(position.x + position.width - 300, position.y,
-      300, position.height);
+      position.width / 2, position.height);
+    var pathRect = new Rect(position.x + position.width / 2 + 10, position.y,
+      position.width / 2 - 10, position.height);
 
     // Draw fields - pass GUIContent.none to each so they can draw with labels
     EditorGUI.PropertyField(assetRect,

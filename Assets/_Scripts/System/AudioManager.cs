@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : SystemManagerBase<AudioManager> {
-  [SerializeField] 
-  private GameObject AudioSourcePrefab;
-  [SerializeField] 
-  private AssetPath BGMFolder;
-  [SerializeField] 
-  private AssetPath SEFolder;
+  [SerializeField]
+  private GameObject AudioSourcePrefab = null;
+  [SerializeField]
+  private AssetPath BGMFolder = null;
+  [SerializeField]
+  private AssetPath SEFolder = null;
 
-  [SerializeField] 
-  private GameObject BGMSource;
-  [SerializeField] 
-  private AudioSource BGMAudioSource;
-  [SerializeField] 
+  [SerializeField]
+  private GameObject BGMSource = null;
+  [SerializeField]
+  private AudioSource BGMAudioSource = null;
+  [SerializeField]
   private string currentBGM = null;
 
-  [SerializeField] 
+  [SerializeField]
   private List<AudioSource> SEAudioSourceList;
 
-  [SerializeField] 
+  [SerializeField]
   private Dictionary<string, AudioClip> BGMDict, SEDict;
 
   new void Awake() {

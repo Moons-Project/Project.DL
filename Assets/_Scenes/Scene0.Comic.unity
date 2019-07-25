@@ -323,7 +323,7 @@ PrefabInstance:
     - target: {fileID: 5795085841023321238, guid: fb4a30f0ccccd0843be51cc1312d886e,
         type: 3}
       propertyPath: m_Name
-      value: System (1)
+      value: System
       objectReference: {fileID: 0}
     - target: {fileID: 5795085841023321237, guid: fb4a30f0ccccd0843be51cc1312d886e,
         type: 3}
@@ -402,15 +402,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messages:
   - gameObject: {fileID: 184268978}
-    waitTime: 3
+    waitTime: 2.5
+    needSlideRight: 0
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 382476848}
+          m_MethodName: _PlayBGMAudio
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   - gameObject: {fileID: 1957339373}
-    waitTime: 3
+    waitTime: 2
+    needSlideRight: 0
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   - gameObject: {fileID: 1096286156}
-    waitTime: 3
+    waitTime: 2
+    needSlideRight: 1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   - gameObject: {fileID: 1330619358}
-    waitTime: 3
+    waitTime: 2
+    needSlideRight: 1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 382476848}
+          m_MethodName: _PlayPeopleSEAudio
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   - gameObject: {fileID: 1809994105}
-    waitTime: 4
+    waitTime: 2
+    needSlideRight: 1
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   nextScene:
     streamingAsset: {fileID: 102900000, guid: 82c9698c32303a24e81168bbe463db8f, type: 3}
     assetName: Scene0
@@ -420,6 +472,7 @@ MonoBehaviour:
   PeopleSEAudio:
     streamingAsset: {fileID: 8300000, guid: 4d12f64b1986c3a4fb27e97080dc46df, type: 3}
     assetName: "0894-\u4EBA\u7FA4\u805A\u96C6\u5608\u6742\u58F0"
+  TimeLine: {fileID: 582227287}
 --- !u!1 &543204014
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +562,6 @@ GameObject:
   m_Component:
   - component: {fileID: 582227288}
   - component: {fileID: 582227287}
-  - component: {fileID: 582227286}
   m_Layer: 0
   m_Name: TimeLine
   m_TagString: Untagged
@@ -517,25 +569,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &582227286
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582227285}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!320 &582227287
 PlayableDirector:
   m_ObjectHideFlags: 0

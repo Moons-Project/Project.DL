@@ -21,13 +21,14 @@ public class AudioManager : SystemManagerBase<AudioManager> {
   private List<AudioSource> SEAudioSourceList;
 
   [SerializeField]
-  private Dictionary<string, AudioClip> BGMDict, SEDict;
+  private Dictionary<string, AudioClip> BGMDict =
+    new Dictionary<string, AudioClip>();
+  [SerializeField]
+  private Dictionary<string, AudioClip> SEDict =
+    new Dictionary<string, AudioClip>();
 
   new void Awake() {
     base.Awake();
-    BGMDict = new Dictionary<string, AudioClip>();
-    SEDict = new Dictionary<string, AudioClip>();
-
     ImportResources();
 
     BGMSource = Instantiate(AudioSourcePrefab);
@@ -88,7 +89,7 @@ public class AudioManager : SystemManagerBase<AudioManager> {
       audioSource = SESource.GetComponent<AudioSource>();
       SEAudioSourceList.Add(audioSource);
     }
-    
+
     audioSource.clip = SEDict[name];
     audioSource.Play();
     return audioSource;

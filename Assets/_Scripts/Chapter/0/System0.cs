@@ -9,11 +9,11 @@ public class System0 : MonoBehaviour {
 
   // Start is called before the first frame update
   void Start() {
-    UIManager.Instance.PlayScript(firstScript.assetName);
-    StartCoroutine(
-      UIManager.Instance.WaitUnitilScriptFinished(()=>{
-        Debug.Log("Finished");
-    }));
+    // UIManager.Instance.PlayScript(firstScript.assetName);
+    // StartCoroutine(
+    //   UIManager.Instance.WaitUnitilScriptFinished(()=>{
+    //     Debug.Log("Finished");
+    // }));
   }
 
   // // Update is called once per frame

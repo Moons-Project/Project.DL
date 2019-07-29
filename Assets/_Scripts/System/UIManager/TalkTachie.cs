@@ -10,24 +10,30 @@ public class TalkTachie : MonoBehaviour {
   private Image leftImage  = null, rightImage = null;
   [SerializeField]
   private TypewriterEffect dialogTypewriter = null;
+  [SerializeField]
+  private GameObject dialogPanel = null;
 
   [SerializeField]
   private AssetPath TachieFolder = null;
   [SerializeField]
   private AssetPath ScriptsFolder = null;
 
+  [Header("设置立绘透明度")]
+  [SerializeField]
+  private Color hightLightColor = new Color(1f, 1f, 1f, 1f);
+  [SerializeField]
+  private Color defaultColor = new Color(1f, 1f, 1f, 0.5f);
+    [SerializeField]
+  private Color hideColor = new Color(1f, 1f, 1f, 0f);
 
+  public bool isPlaying = false;
+  [SerializeField]
+  private Script[] playingScript;
+  [SerializeField]
+  private int playingScriptIndex;
   [SerializeField]
   private Dictionary<string, Sprite> TachieDict =
     new Dictionary<string, Sprite>();
-
-  [SerializeField]
-  private GameObject dialogPanel = null;
-
-
-  public bool isPlaying = false;
-  private Script[] playingScript;
-  private int playingScriptIndex;
 
   public delegate void DialogEndHandler();
   public event DialogEndHandler DialogEnd;
@@ -88,26 +94,33 @@ public class TalkTachie : MonoBehaviour {
     ShowTachie(speaker, which);
     // // add Name
     // string text = "<b>" + speaker + "</b>: ";
-    // dialogText.text = text;
+    dialogText.text = "";
     dialogTypewriter.SetText(content);
+  }
+
+  public void InitialTachie() {
+    leftImage.sprite = null;
+    leftImage.color = hideColor;
+    rightImage.sprite = null;
+    rightImage.color = hideColor;
   }
 
   public void ShowTachie(string speaker, WhichImage which) {
     Sprite tachie = null;
-    if (TachieDict.ContainsKey(speaker)) {
+    if (TachieDict.ContainsKey(speaker))
       tachie = TachieDict[speaker];
-    }
+    
     var useImage = (which == WhichImage.LeftImage ? leftImage : rightImage);
     var otherImage = (useImage == leftImage ? rightImage : leftImage);
 
     if (otherImage.sprite != null)
-      otherImage.color = new Color(1f, 1f, 1f, 0.5f);
+      otherImage.color = defaultColor;
     useImage.sprite = tachie;
 
     if (tachie == null) {
-      useImage.color = new Color(1f, 1f, 1f, 0f);
+      useImage.color = hideColor;
     } else {
-      useImage.color = new Color(1f, 1f, 1f, 1f);
+      useImage.color = hightLightColor;
     }
   }
 
@@ -159,6 +172,7 @@ public class TalkTachie : MonoBehaviour {
     isPlaying = true;
     playingScript = scripts;
     playingScriptIndex = 0;
+    InitialTachie();
     NextScript();
   }
 

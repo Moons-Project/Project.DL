@@ -17,27 +17,19 @@ public class CommicPlay : MonoBehaviour {
 
   public ComicMessage[] messages;
   public AssetName nextScene;
-  public AssetName BGMAudio;
-  public AssetName PeopleSEAudio;
+
   public PlayableDirector TimeLine;
 
   [SerializeField]
   private bool isPlayVideoPaused => !InputManager.Instance.SlideRightAction;
 
-  private static float kPauseTime = 1.0f;
-  private static float kMaxPauseTime = 5.0f;
+  public static float kPauseTime = 1.0f;
+  public static float kPlayerPauseTime = 0.5f;
+  public static float kMaxPauseTime = 5.0f;
 
-  public void _PlayBGMAudio() {
-    AudioManager.Instance.PlayBGM(BGMAudio.assetName);
-  }
-
-  public void _PlayPeopleSEAudio() {
-    AudioManager.Instance.PlaySE(PeopleSEAudio.assetName);
-  }
 
   // Start is called before the first frame update
   void Start() {
-    AudioManager.Instance.PlayBGM(BGMAudio.assetName);
     StartCoroutine(PlayVideo());
   }
 
@@ -59,8 +51,9 @@ public class CommicPlay : MonoBehaviour {
         // while(isPaused){ yield return null; }
         var timeCount = 0.0f;
         var playTimeCount = 0.0f;
+        // 当有足够的剩余时间且滑动时间不满足
         while (timeCount + (kPauseTime - playTimeCount) < kMaxPauseTime && 
-               kPauseTime - playTimeCount > 0) {
+               kPlayerPauseTime - playTimeCount > 0) {
           if (isPlayVideoPaused) {
             TimeLine.Pause();
           } else {
@@ -70,6 +63,7 @@ public class CommicPlay : MonoBehaviour {
           timeCount += Time.deltaTime;
           yield return null;
         }
+        // 当滑动时间不够动画时间
         if (kPauseTime - playTimeCount > 0) {
           TimeLine.Play();
           yield return new WaitForSeconds(kPauseTime - playTimeCount);

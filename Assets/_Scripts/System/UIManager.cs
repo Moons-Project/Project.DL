@@ -14,7 +14,7 @@ public class UIManager : SystemManagerBase<UIManager> {
 
   new void Awake() {
     base.Awake();
-    talkTachie.activeDialog();
+    talkTachie.activeDialogPanel();
   }
 
   // void Start() {
@@ -28,13 +28,4 @@ public class UIManager : SystemManagerBase<UIManager> {
   // public void PlayScript(string scriptName) {
   //   talkTachie.PlayScript(scriptName);
   // }
-
-  public IEnumerator WaitUnitilScriptFinished(Action action) {
-    var trigger = false;
-    Action changeTrigger = () => trigger = true;
-    talkTachie.FinishedEvent += changeTrigger.Invoke;
-    yield return new WaitUntil(() => trigger);
-    talkTachie.FinishedEvent -= changeTrigger.Invoke;
-    action.Invoke();
-  }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -70,16 +71,15 @@ public class TalkTachie : MonoBehaviour {
   }
 
   void Start() {
-    deactiveDialog();
     DialogEnd += NextScript;
     FinishedEvent += () => {
       isPlaying = false;
-      deactiveDialog();
+      deactiveDialogPanel();
     };
   }
 
   void ImportResources() {
-    Object[] tachies = Resources.LoadAll(
+    UnityEngine.Object[] tachies = Resources.LoadAll(
       TachieFolder.ResourcesPath, typeof(Sprite));
 
     foreach (var img in tachies) {
@@ -90,7 +90,7 @@ public class TalkTachie : MonoBehaviour {
 
   public void ShowDialog(string speaker, string content, 
     WhichImage which = WhichImage.LeftImage) {
-    activeDialog();
+    activeDialogPanel();
     ShowTachie(speaker, which);
     // // add Name
     // string text = "<b>" + speaker + "</b>: ";
@@ -125,18 +125,22 @@ public class TalkTachie : MonoBehaviour {
   }
 
   public void ShowDialog(Sprite avatar, string content) {
-    activeDialog();
+    activeDialogPanel();
     dialogTypewriter.SetText(content);
   }
 
-  public void deactiveDialog() {
+  public void deactiveDialogPanel() {
     if (dialogPanel.activeSelf)
-      dialogPanel.SetActive(false);
+    dialogPanel.SetActive(false);
+    leftImage.color = hideColor;
+    rightImage.color = hideColor;
   }
 
-  public void activeDialog() {
+  public void activeDialogPanel() {
     if (!dialogPanel.activeSelf)
-     dialogPanel.SetActive(true);
+    dialogPanel.SetActive(true);
+    // leftImage.color = defaultColor;
+    // rightImage.color = defaultColor;
   }
 
   public void SkipDialog() {
@@ -191,9 +195,18 @@ public class TalkTachie : MonoBehaviour {
   public void SkipScript() {
     if (isPlaying) {
       isPlaying = false;
-      deactiveDialog();
+      deactiveDialogPanel();
       FinishedEvent();
     }
+  }
+
+  public IEnumerator WaitUnitilScriptFinished(Action action) {
+    var trigger = false;
+    Action changeTrigger = () => trigger = true;
+    FinishedEvent += changeTrigger.Invoke;
+    yield return new WaitUntil(() => trigger);
+    FinishedEvent -= changeTrigger.Invoke;
+    action.Invoke();
   }
 
   void OnDisable() {

@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "speaker": "学生1.1_0",
+      "content": "太好了，大家闹哄哄的就上不成课了。",
+      "leftOrRight": 1
+    },
+    {
+      "speaker": "学生2.1_0",
+      "content": "诶诶，究竟怎么了，听说好像有人去天台了？",
+      "leftOrRight": 0
+    },
+    {
+      "speaker": "学生3.1_0",
+      "content": "就是三班那个不起眼的男生，你说他会不会跳下来啊。",
+      "leftOrRight": 0
+    },
+    {
+      "speaker": "立绘.警察_0",
+      "content": "什么？有人要寻短见？！",
+      "leftOrRight": 1
+    }
+  ]
+}

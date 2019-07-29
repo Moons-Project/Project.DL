@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class InputManager : SystemManagerBase<InputManager> {
   public bool MouseMoveRight => Input.GetAxis("Mouse X") > 0;
+  public bool MouseMoveTop => Input.GetAxis("Mouse Y") > 0;
+
   public bool MouseClickDown => Input.GetMouseButton(0);
   public bool SlideRightAction => MouseClickDown && MouseMoveRight;
+  public bool SlideTopAction => MouseClickDown && MouseMoveTop;
 
   public Vector3 MousePosition() {
     if (MouseClickDown) {

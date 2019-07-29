@@ -76,6 +76,7 @@ public class TalkTachie : MonoBehaviour {
       isPlaying = false;
       deactiveDialogPanel();
     };
+    deactiveDialogPanel();
   }
 
   void ImportResources() {

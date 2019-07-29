@@ -6,15 +6,23 @@ using UnityEngine;
 
 public class System0 : MonoBehaviour {
 
-  public AssetName firstScript = null;
-  public GameObject textGameObject = null;
+  public AssetName policeScript = null;
+  public AssetName studentScript = null;
+
+  public GameObject hintText_1 = null;
+  public GameObject hintText_2 = null;
+
   public UnityEngine.Object circle = null;
   public GameObject circleHolder = null;
   public Police police = null;
+  public PeopleReact peopleReact = null;
+  public GameObject MainCamera = null;
   public Collider2D areaCollider;
 
   [SerializeField]
   private bool isClickRunPart = false;
+    [SerializeField]
+  private bool isSlideTopPart = false;
   [SerializeField]
   private float clickCD = kClickCD;
 
@@ -25,15 +33,17 @@ public class System0 : MonoBehaviour {
 
   // Start is called before the first frame update
   void Start() {
-    textGameObject.SetActive(false);
+    hintText_1.SetActive(false);
+    hintText_2.SetActive(false);
+    peopleReact.EnterEvent += PeopleTalkPart;
 
-    talkTachie.PlayScript(firstScript.assetName);
+    talkTachie.PlayScript(policeScript.assetName);
     StartCoroutine(
       talkTachie.WaitUnitilScriptFinished(() => {
         Debug.Log("警察对话完成");
-        StartCoroutine(ShowTextOnRoad(() => {
+        StartCoroutine(ShowHintText_1(() => {
           isClickRunPart = true;
-          Debug.Log("展示提示完成");
+          Debug.Log("展示提示1完成");
         }));
       }));
   }
@@ -41,6 +51,31 @@ public class System0 : MonoBehaviour {
   // Update is called once per frame
   void Update() {
     if (isClickRunPart) ClickRunPart();
+    if (isSlideTopPart) SlideTopPart();
+  }
+
+  void SlideTopPart() {
+    if (InputManager.Instance.SlideTopAction) {
+      isSlideTopPart = false;
+      MainCamera.GetComponent<Animator>().Play("SlideTop");
+    }
+  }
+
+
+  void PeopleTalkPart() {
+    isClickRunPart = false;
+
+    Debug.Log("Start 学生对话");
+    MainCamera.GetComponent<Animator>().Play("LookPeople");
+    talkTachie.PlayScript(studentScript.assetName);
+    StartCoroutine(
+      talkTachie.WaitUnitilScriptFinished(() => {
+        Debug.Log("学生对话完成");
+        StartCoroutine(ShowHintText_2(() => {
+          isSlideTopPart = true;
+          Debug.Log("展示提示2完成");
+        }));
+      }));
   }
 
   void ClickRunPart() {
@@ -66,12 +101,23 @@ public class System0 : MonoBehaviour {
     }
   }
 
-  IEnumerator ShowTextOnRoad(Action action,
+  IEnumerator ShowHintText_1(Action action,
     float waitTime = 0.5f, float duration = 5.0f) {
     action.Invoke();
     yield return new WaitForSeconds(waitTime);
-    textGameObject.SetActive(true);
-    var effect = textGameObject.GetComponent<UITransitionEffect>();
+    hintText_1.SetActive(true);
+    var effect = hintText_1.GetComponent<UITransitionEffect>();
+    effect.Show();
+    yield return new WaitForSeconds(duration);
+    effect.Hide();
+  }
+
+  IEnumerator ShowHintText_2(Action action,
+    float waitTime = 0.5f, float duration = 5.0f) {
+    action.Invoke();
+    yield return new WaitForSeconds(waitTime);
+    hintText_2.SetActive(true);
+    var effect = hintText_2.GetComponent<UITransitionEffect>();
     effect.Show();
     yield return new WaitForSeconds(duration);
     effect.Hide();

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class TypewriterEffect : MonoBehaviour {
   public Text textComponent;
-  public float delay = 0.5f;
+  public float delay = 0.2f;
   private string currentText = "";
   private int currentIndex = 0;
   private bool skip = false;

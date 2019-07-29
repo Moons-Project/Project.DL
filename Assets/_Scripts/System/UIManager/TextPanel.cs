@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TextPanel : MonoBehaviour {
-  public TalkTachie talkTachie;
+  [SerializeField]
+  private TalkTachie talkTachie = null;
 
   void OnMouseDown() {
     talkTachie.OnDialogPress();

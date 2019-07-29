@@ -43,8 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b083e1d65338244e87e65ee3a367a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSourcesGObj: {fileID: 2795739369442927955, guid: 3a1ff938f2b37924d9c9e1fac6e55863,
-    type: 3}
   AudioSourcePrefab: {fileID: 2795739369442927955, guid: 3a1ff938f2b37924d9c9e1fac6e55863,
     type: 3}
   BGMFolder:
@@ -53,7 +51,9 @@ MonoBehaviour:
   SEFolder:
     streamingAsset: {fileID: 102900000, guid: 2e2312e6c783b1445a491cbca8f48aef, type: 3}
     assetPath: Assets/Resources/Music/SE
-  BGMSource: {fileID: 0}
-  BGMAudioSource: {fileID: 0}
+  BGMSource: {fileID: 2795739369442927955, guid: 3a1ff938f2b37924d9c9e1fac6e55863,
+    type: 3}
+  BGMAudioSource: {fileID: 8275935635364902505, guid: 3a1ff938f2b37924d9c9e1fac6e55863,
+    type: 3}
   currentBGM: 
   SEAudioSourceList: []

@@ -32,7 +32,8 @@ RectTransform:
   m_Children:
   - {fileID: 988614382}
   - {fileID: 2460106665073806008}
-  m_Father: {fileID: 5950417197127931103}
+  - {fileID: 5950417197127931103}
+  m_Father: {fileID: 1680207790254728098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -233,7 +234,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5950417197127931103}
+  - {fileID: 22210597}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -249,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc6f2a1a6410ba4b9508deda130ac61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  talkTachie: {fileID: 2564646971824691919}
 --- !u!1 &3947549914270534147
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 8506892501435139892}
-  delay: 0.5
+  delay: 0.2
   typing: 0
 --- !u!1 &4556340257703317605
 GameObject:
@@ -399,7 +401,14 @@ MonoBehaviour:
   leftImage: {fileID: 8475612628471599006}
   rightImage: {fileID: 8727651958462372723}
   dialogTypewriter: {fileID: 6080717204785518895}
+  TachieFolder:
+    streamingAsset: {fileID: 102900000, guid: 573e002b42b134b4995a1b5367d03f10, type: 3}
+    assetPath: Assets/Resources/Tachie
+  ScriptsFolder:
+    streamingAsset: {fileID: 102900000, guid: 5c77a59be22826d4ab07ae1ef28a8cdb, type: 3}
+    assetPath: Assets/Resources/Jsons/Scripts
   dialogPanel: {fileID: 4556340257703317605}
+  isPlaying: 0
 --- !u!1 &4589567134129290508
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,10 +645,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 22210597}
-  m_Father: {fileID: 1680207790254728098}
-  m_RootOrder: 0
+  m_Children: []
+  m_Father: {fileID: 22210597}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8550626657295253341
 GameObject:

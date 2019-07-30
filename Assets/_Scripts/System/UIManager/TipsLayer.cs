@@ -16,6 +16,8 @@ public class TipsLayer : MonoBehaviour {
   }
 
   public void ShowHintText(string hintText, float delay, float afterTime) {
+    StopAllCoroutines();
+
     var text = HintText.GetComponent<Text>();
     var textUIShiny = HintText.GetComponent<UIShiny>();
     text.text = hintText;

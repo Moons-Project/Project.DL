@@ -69,6 +69,13 @@ public class AudioManager : SystemManagerBase<AudioManager> {
     BGMAudioSource.Stop();
   }
 
+  public void StopSE() {
+    // Find in pool
+    foreach (var source in SEAudioSourceList) {
+      source.Stop();
+    }
+  }
+
   public AudioSource PlaySE(string name) {
     AudioSource audioSource = null;
     bool found = false;

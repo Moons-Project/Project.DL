@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Coffee.UIExtensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class System0 : MonoBehaviour {
 
+
+  public AssetName nextScene = null;
   public AssetName policeScript = null;
   public AssetName studentScript = null;
 
@@ -16,7 +19,10 @@ public class System0 : MonoBehaviour {
   public GameObject circleHolder = null;
   public Police police = null;
   public PeopleReact peopleReact = null;
+  public Stoop stoop = null;
   public GameObject MainCamera = null;
+  public GameObject FilterObject = null;
+
   public Collider2D areaCollider;
 
   [SerializeField]
@@ -36,6 +42,9 @@ public class System0 : MonoBehaviour {
     hintText_1.SetActive(false);
     hintText_2.SetActive(false);
     peopleReact.EnterEvent += PeopleTalkPart;
+    stoop.StoopFinishEvent += ()=> {
+      StartCoroutine(FinishPart());
+    };
 
     talkTachie.PlayScript(policeScript.assetName);
     StartCoroutine(
@@ -54,10 +63,20 @@ public class System0 : MonoBehaviour {
     if (isSlideTopPart) SlideTopPart();
   }
 
+  IEnumerator FinishPart() {
+    MainCamera.GetComponent<Animator>().Play("LookStoop");
+    yield return new WaitForSeconds(2);
+    AudioManager.Instance.StopBGM();
+    AudioManager.Instance.StopSE();
+    SceneManager.LoadScene(nextScene.assetName, LoadSceneMode.Single);
+  }
+
   void SlideTopPart() {
+    FilterObject.SetActive(true);
     if (InputManager.Instance.SlideTopAction) {
       isSlideTopPart = false;
       MainCamera.GetComponent<Animator>().Play("SlideTop");
+      UIManager.Instance.tipsLayer.ShowHintText("晃动杂乱线条来找出烦恼", 10.0f, 0.5f);
     }
   }
 
@@ -102,7 +121,7 @@ public class System0 : MonoBehaviour {
   }
 
   IEnumerator ShowHintText_1(Action action,
-    float waitTime = 0.5f, float duration = 5.0f) {
+    float waitTime = 0.5f, float duration = 3.0f) {
     action.Invoke();
     yield return new WaitForSeconds(waitTime);
     hintText_1.SetActive(true);
@@ -113,7 +132,7 @@ public class System0 : MonoBehaviour {
   }
 
   IEnumerator ShowHintText_2(Action action,
-    float waitTime = 0.5f, float duration = 5.0f) {
+    float waitTime = 0.5f, float duration = 3.0f) {
     action.Invoke();
     yield return new WaitForSeconds(waitTime);
     hintText_2.SetActive(true);

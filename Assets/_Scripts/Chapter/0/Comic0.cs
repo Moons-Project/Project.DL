@@ -8,6 +8,8 @@ public class Comic0 : MonoBehaviour {
   public AssetName PeopleSEAudio;
   public Color hintTextColor;
 
+
+
   private bool isSlideRightFinished = false;
   private TipsLayer tipsLayer => UIManager.Instance.tipsLayer;
   private CommicPlay commicPlay => this.gameObject.GetComponent<CommicPlay>();

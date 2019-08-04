@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class TipsLayer : MonoBehaviour {
   [SerializeField]
   private GameObject HintText = null;
+  [SerializeField]
+  public StoryBoard storyBoard = null;
 
   public Color HintTextColor;
 

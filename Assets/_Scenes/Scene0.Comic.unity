@@ -477,7 +477,8 @@ MonoBehaviour:
   nextScene:
     streamingAsset: {fileID: 102900000, guid: 82c9698c32303a24e81168bbe463db8f, type: 3}
     assetName: Scene0
-  TimeLine: {fileID: 582227287}
+  timeLine: {fileID: 582227287}
+  storyBoardIndex: 0
 --- !u!114 &382476849
 MonoBehaviour:
   m_ObjectHideFlags: 0

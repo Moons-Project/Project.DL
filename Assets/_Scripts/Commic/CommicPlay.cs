@@ -18,7 +18,7 @@ public class CommicPlay : MonoBehaviour {
   public ComicMessage[] messages;
   public AssetName nextScene;
 
-  public PlayableDirector TimeLine;
+  public PlayableDirector timeLine;
 
   [SerializeField]
   private bool isPlayVideoPaused => !InputManager.Instance.SlideRightAction;
@@ -26,18 +26,28 @@ public class CommicPlay : MonoBehaviour {
   public static float kPauseTime = 1.0f;
   public static float kPlayerPauseTime = 0.5f;
   public static float kMaxPauseTime = 5.0f;
-
+  public int storyBoardIndex = -1;
 
   // Start is called before the first frame update
   void Start() {
+    timeLine.Pause();
+    UIManager.Instance.tipsLayer.storyBoard.FinishEvent += StartPlayVideo;
+    if (storyBoardIndex >= 0) {
+      UIManager.Instance.tipsLayer.storyBoard.PlayStoryText(storyBoardIndex);
+    } else {
+      StartPlayVideo();
+    }
+  }
+
+  void StartPlayVideo() {
     StartCoroutine(PlayVideo());
   }
 
-  void Update() {
-
-  }
 
   IEnumerator PlayVideo() {
+    timeLine.Play();
+    UIManager.Instance.tipsLayer.storyBoard.FinishEvent -= StartPlayVideo;
+
     foreach (var message in messages) {
       // var player = message.gameObject.GetComponent<VideoPlayer>();
       // player.Play(); // player.Pause();
@@ -55,9 +65,9 @@ public class CommicPlay : MonoBehaviour {
         while (timeCount + (kPauseTime - playTimeCount) < kMaxPauseTime && 
                kPlayerPauseTime - playTimeCount > 0) {
           if (isPlayVideoPaused) {
-            TimeLine.Pause();
+            timeLine.Pause();
           } else {
-            TimeLine.Play();
+            timeLine.Play();
             playTimeCount += Time.deltaTime;
           }
           timeCount += Time.deltaTime;
@@ -65,7 +75,7 @@ public class CommicPlay : MonoBehaviour {
         }
         // 当滑动时间不够动画时间
         if (kPauseTime - playTimeCount > 0) {
-          TimeLine.Play();
+          timeLine.Play();
           yield return new WaitForSeconds(kPauseTime - playTimeCount);
         }
       }

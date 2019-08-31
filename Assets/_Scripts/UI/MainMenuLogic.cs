@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+using Jsky.Common;
+
 public class MainMenuLogic : MonoBehaviour {
 
   [Header("点不动的按钮们")]

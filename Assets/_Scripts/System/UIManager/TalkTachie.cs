@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Jsky.Common;
+
 
 public class TalkTachie : MonoBehaviour {
   [SerializeField]

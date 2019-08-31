@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Jsky.Common;
+
 public class Comic0 : MonoBehaviour {
   public AssetName BGMAudio;
   public AssetName PeopleSEAudio;

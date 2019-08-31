@@ -6,6 +6,9 @@ using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
+using Jsky.Common;
+
+
 public class CommicPlay : MonoBehaviour {
   [System.Serializable]
   public struct ComicMessage {

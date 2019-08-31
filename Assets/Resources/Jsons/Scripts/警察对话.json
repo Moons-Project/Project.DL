@@ -2,11 +2,13 @@
   "data": [
     {
       "speaker": "立绘.警察_0",
+      "panel": "立绘框警察",
       "content": "这么热的天，学校又闹什么事情呢！",
       "leftOrRight": 1
     },
     {
       "speaker": "立绘.警察_0",
+      "panel": "立绘框警察",
       "content": "聚前面那么多人，去看看什么情况，赶紧处理完等会还能睡个觉。",
       "leftOrRight": 1
     }

@@ -919,7 +919,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8, y: -352}
+  m_AnchoredPosition: {x: 11, y: -371}
   m_SizeDelta: {x: -350.6, y: -90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &55274296985597351
@@ -1015,8 +1015,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: -200, y: -50}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2564646971824691919
 MonoBehaviour:
@@ -1033,6 +1033,7 @@ MonoBehaviour:
   dialogText: {fileID: 8506892501435139892}
   leftImage: {fileID: 8475612628471599006}
   rightImage: {fileID: 8727651958462372723}
+  dialogPanelImage: {fileID: 4450128374901429851}
   dialogTypewriter: {fileID: 6080717204785518895}
   dialogPanel: {fileID: 4589567134129290508}
   TachieFolder:

@@ -8,7 +8,7 @@ public class TalkTachie : MonoBehaviour {
   [SerializeField]
   private Text dialogText = null;
   [SerializeField]
-  private Image leftImage  = null, rightImage = null;
+  private Image leftImage  = null, rightImage = null, dialogPanelImage = null;
   [SerializeField]
   private TypewriterEffect dialogTypewriter = null;
   [SerializeField]
@@ -50,6 +50,7 @@ public class TalkTachie : MonoBehaviour {
   [System.Serializable]
   public class Script {
     public string speaker;
+    public string panel;
     public string content;
     public TalkTachie.WhichImage leftOrRight;
   }
@@ -89,10 +90,10 @@ public class TalkTachie : MonoBehaviour {
     }
   }
 
-  public void ShowDialog(string speaker, string content, 
+  public void ShowDialog(string speaker, string panel, string content, 
     WhichImage which = WhichImage.LeftImage) {
     activeDialogPanel();
-    ShowTachie(speaker, which);
+    ShowTachie(speaker, panel, which);
     // // add Name
     // string text = "<b>" + speaker + "</b>: ";
     dialogText.text = "";
@@ -106,7 +107,7 @@ public class TalkTachie : MonoBehaviour {
     rightImage.color = hideColor;
   }
 
-  public void ShowTachie(string speaker, WhichImage which) {
+  public void ShowTachie(string speaker, string panel, WhichImage which) {
     Sprite tachie = null;
     if (TachieDict.ContainsKey(speaker))
       tachie = TachieDict[speaker];
@@ -117,6 +118,9 @@ public class TalkTachie : MonoBehaviour {
     if (otherImage.sprite != null)
       otherImage.color = defaultColor;
     useImage.sprite = tachie;
+
+    if (TachieDict.ContainsKey(panel))
+      dialogPanelImage.sprite = TachieDict[panel];
 
     if (tachie == null) {
       useImage.color = hideColor;
@@ -190,7 +194,7 @@ public class TalkTachie : MonoBehaviour {
       return;
     }
     var script = playingScript[playingScriptIndex++];
-    ShowDialog(script.speaker, script.content, script.leftOrRight);
+    ShowDialog(script.speaker, script.panel, script.content, script.leftOrRight);
   }
 
   public void SkipScript() {

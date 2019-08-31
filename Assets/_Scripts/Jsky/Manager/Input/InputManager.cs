@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : SystemManagerBase<InputManager> {
+namespace Jsky.Manager {
+
+public class InputManager : ManagerBase<InputManager> {
   public bool MouseMoveRight => Input.GetAxis("Mouse X") > 0;
   public bool MouseMoveTop => Input.GetAxis("Mouse Y") > 0;
 
@@ -23,4 +25,6 @@ public class InputManager : SystemManagerBase<InputManager> {
   void Update() {
     if (Input.GetKeyDown("escape")) Application.Quit();
   }
+}
+
 }

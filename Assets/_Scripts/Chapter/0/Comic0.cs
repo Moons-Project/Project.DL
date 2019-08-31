@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Jsky.Common;
+using Jsky.Manager;
 
 public class Comic0 : MonoBehaviour {
   public AssetName BGMAudio;

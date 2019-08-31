@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : SystemManagerBase<CameraManager> {
+namespace Jsky.Manager {
+
+public class CameraManager : ManagerBase<CameraManager> {
+
+}
 
 }

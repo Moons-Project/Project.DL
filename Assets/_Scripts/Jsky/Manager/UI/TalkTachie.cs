@@ -90,6 +90,7 @@ public class TalkTachie : MonoBehaviour {
       TachieDict.Add(img.name, img as Sprite);
       Debug.Log($"TachieDict add {img.name}");
     }
+
   }
 
   public void ShowDialog(string speaker, string panel, string content, 

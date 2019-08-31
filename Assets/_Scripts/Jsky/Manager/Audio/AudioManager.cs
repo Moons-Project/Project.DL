@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Jsky.Common;
 
+namespace Jsky.Manager {
 
-public class AudioManager : SystemManagerBase<AudioManager> {
+public class AudioManager : ManagerBase<AudioManager> {
   [SerializeField]
   private GameObject AudioSourcePrefab = null;
   [SerializeField]
@@ -115,4 +116,5 @@ public class AudioManager : SystemManagerBase<AudioManager> {
       source.volume = res;
     }
   }
+}
 }

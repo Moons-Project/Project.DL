@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : SystemManagerBase<UIManager> {
+
+namespace Jsky.Manager {
+
+public class UIManager : ManagerBase<UIManager> {
 
   public TalkTachie talkTachie = null;
   public TipsLayer tipsLayer = null;
@@ -28,4 +31,5 @@ public class UIManager : SystemManagerBase<UIManager> {
   // public void PlayScript(string scriptName) {
   //   talkTachie.PlayScript(scriptName);
   // }
+}
 }

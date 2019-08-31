@@ -5,7 +5,7 @@ using Coffee.UIExtensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Jsky.Common;
-
+using Jsky.Manager;
 
 
 public class System0 : MonoBehaviour {

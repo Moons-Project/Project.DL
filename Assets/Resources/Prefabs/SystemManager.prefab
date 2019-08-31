@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2516508844551509343}
   m_Layer: 0
-  m_Name: SystemCrossScene
+  m_Name: SystemManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,6 +180,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1246051918}
+    - target: {fileID: 6988558004091468500, guid: f1ac2c6484ed342489763bff7be9fb80,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -184.59998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688907771400412946, guid: f1ac2c6484ed342489763bff7be9fb80,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -371.00003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1ac2c6484ed342489763bff7be9fb80, type: 3}
 --- !u!4 &2516508844596060270 stripped

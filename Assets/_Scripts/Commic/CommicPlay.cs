@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 using Jsky.Common;
-
+using Jsky.Manager;
 
 public class CommicPlay : MonoBehaviour {
   [System.Serializable]

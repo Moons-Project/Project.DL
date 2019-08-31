@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5795085841023321237}
   - component: {fileID: 4578084661452816862}
   m_Layer: 0
-  m_Name: System
+  m_Name: IndividualSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac88084de16a4cc4b9cdea4fec66139e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  systemManagerPrefabPath:
-    streamingAsset: {fileID: 2516508844551509342, guid: f8982448ab8829947aa5fe4c7296ff74,
-      type: 3}
-    assetPath: Assets/Resources/Prefabs/SystemCrossScene.prefab
+  systemManagerPrefab: {fileID: 2516508844551509342, guid: f8982448ab8829947aa5fe4c7296ff74,
+    type: 3}

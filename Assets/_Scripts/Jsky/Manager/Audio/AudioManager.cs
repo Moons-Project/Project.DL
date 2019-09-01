@@ -8,10 +8,6 @@ namespace Jsky.Manager {
 public class AudioManager : ManagerBase<AudioManager> {
   [SerializeField]
   private GameObject AudioSourcePrefab = null;
-  [SerializeField]
-  private AssetPath BGMFolder = null;
-  [SerializeField]
-  private AssetPath SEFolder = null;
 
   [SerializeField]
   private GameObject BGMSource = null;
@@ -23,16 +19,9 @@ public class AudioManager : ManagerBase<AudioManager> {
   [SerializeField]
   private List<AudioSource> SEAudioSourceList;
 
-  [SerializeField]
-  private Dictionary<string, AudioClip> BGMDict =
-    new Dictionary<string, AudioClip>();
-  [SerializeField]
-  private Dictionary<string, AudioClip> SEDict =
-    new Dictionary<string, AudioClip>();
 
   new void Awake() {
     base.Awake();
-    ImportResources();
 
     BGMSource = Instantiate(AudioSourcePrefab);
     BGMSource.name = "BGM Player";
@@ -43,27 +32,11 @@ public class AudioManager : ManagerBase<AudioManager> {
     SEAudioSourceList = new List<AudioSource>();
   }
 
-  void ImportResources() {
-    Object[] bgms = Resources.LoadAll(
-      BGMFolder.ResourcesPath, typeof(AudioClip));
-    Object[] ses = Resources.LoadAll(
-      SEFolder.ResourcesPath, typeof(AudioClip));
-
-    foreach (var clip in bgms) {
-      BGMDict.Add(clip.name, clip as AudioClip);
-      Debug.Log($"BGMDict add {clip.name}");
-    }
-
-    foreach (var clip in ses) {
-      SEDict.Add(clip.name, clip as AudioClip);
-      Debug.Log($"SEDict add {clip.name}");
-    }
-  }
 
   public void PlayBGM(string name) {
     if (currentBGM != name) {
       currentBGM = name;
-      BGMAudioSource.clip = BGMDict[name];
+      BGMAudioSource.clip = DBManager.Instance.BGMDict[name];
       BGMAudioSource.Play();
     }
   }
@@ -100,7 +73,7 @@ public class AudioManager : ManagerBase<AudioManager> {
       SEAudioSourceList.Add(audioSource);
     }
 
-    audioSource.clip = SEDict[name];
+    audioSource.clip = DBManager.Instance.SEDict[name];
     audioSource.Play();
     return audioSource;
   }

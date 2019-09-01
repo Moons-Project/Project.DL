@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextPanel : MonoBehaviour {
-  [SerializeField]
-  private TalkTachie talkTachie = null;
+namespace Jsky.Manager {
 
-  void OnMouseDown() {
-    talkTachie.OnDialogPress();
+  public class TextPanel : MonoBehaviour {
+    [SerializeField]
+    private TalkTachie talkTachie = null;
+
+    void OnMouseDown() {
+      talkTachie.OnDialogPress();
+    }
   }
 }

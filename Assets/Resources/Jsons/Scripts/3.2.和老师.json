@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "speaker": "教师.亮",
+      "panel": "立绘框老师",
+      "content": "（在收补课费）",
+      "leftOrRight": 0
+    },{
+      "speaker": "立绘.男主.没有阴影_0",
+      "panel": "立绘框男主2",
+      "content": "（昨天和父亲争执并没有拿到钱）",
+      "leftOrRight": 1
+    },{
+      "speaker": "教师.亮",
+      "panel": "立绘框老师",
+      "content": "（当众劈头盖脸就骂向了男主）",
+      "leftOrRight": 0
+    },{
+      "speaker": "立绘.男主_0",
+      "panel": "立绘框男主",
+      "content": "（男主万念俱灰）",
+      "leftOrRight": 1
+    }
+  ]
+}

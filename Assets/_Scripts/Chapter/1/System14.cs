@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using Jsky.Common;
 using Jsky.Manager;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class System4 : MonoBehaviour {
+public class System14 : MonoBehaviour {
 
   public AssetName nextScene = null;
 
   // Start is called before the first frame update
   void Start() {
-    StartCoroutine(FinishPart());
+    StartCoroutine(InitialPart());
   }
 
   // Update is called once per frame
@@ -19,9 +19,9 @@ public class System4 : MonoBehaviour {
 
   }
 
-  IEnumerator FinishPart() {
-
-    yield return new WaitForSeconds(7.0f);
+  
+  IEnumerator InitialPart() {
+    yield return new WaitForSeconds(8.0f);
 
     SceneManager.LoadScene(nextScene.assetName, LoadSceneMode.Single);
   }

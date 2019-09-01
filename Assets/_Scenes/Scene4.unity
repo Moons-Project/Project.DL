@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: 5795085841023321237, guid: fb4a30f0ccccd0843be51cc1312d886e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5795085841023321237, guid: fb4a30f0ccccd0843be51cc1312d886e,
         type: 3}
@@ -372,6 +372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec0a3018c2f76e42aa773217ee7d660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene:
+    streamingAsset: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+    assetName: MainMenu
 --- !u!1 &1623029728
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +405,7 @@ Transform:
   - {fileID: 568460101}
   - {fileID: 1112669059}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756538473
 GameObject:

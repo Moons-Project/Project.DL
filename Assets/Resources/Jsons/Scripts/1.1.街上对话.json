@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "speaker": "立绘.男主.没有阴影_0",
+      "panel": "立绘框群众",
+      "content": "（寒暄）",
+      "leftOrRight": 1
+    },
+    {
+      "speaker": "立绘.女主_0",
+      "panel": "立绘框女主",
+      "content": "（礼貌性应答）",
+      "leftOrRight": 0
+    },
+    {
+      "speaker": "立绘.男主.没有阴影_0",
+      "panel": "立绘框群众",
+      "content": "（试图找到共同话题）",
+      "leftOrRight": 1
+    },
+    {
+      "speaker": "立绘.女主_0",
+      "panel": "立绘框女主",
+      "content": "（注意力被其他东西吸引走）",
+      "leftOrRight": 0
+    }
+  ]
+}

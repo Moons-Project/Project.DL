@@ -226,8 +226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGMAudio:
-    streamingAsset: {fileID: 8300000, guid: 95e89d5a615025f45a94af30a5a0e887, type: 3}
-    assetName: "\u5730\u94C1BGM"
+    streamingAsset: {fileID: 8300000, guid: ce29a0b5feab2db4598e1e2606f2d67d, type: 3}
+    assetName: "\u56DE\u5BB6\u8DEF\u4E0ABGM"
   PeopleSEAudio:
     streamingAsset: {fileID: 0}
     assetName: Empty
@@ -321,7 +321,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

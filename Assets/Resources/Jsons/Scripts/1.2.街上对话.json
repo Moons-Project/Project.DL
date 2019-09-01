@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "speaker": "立绘.男主.没有阴影_0",
+      "panel": "立绘框群众",
+      "content": "（男主介绍餐厅）",
+      "leftOrRight": 1
+    },
+    {
+      "speaker": "立绘.女主_0",
+      "panel": "立绘框女主",
+      "content": "（女主并不太喜欢这个餐厅）",
+      "leftOrRight": 0
+    }
+  ]
+}

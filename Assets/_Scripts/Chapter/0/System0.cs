@@ -9,8 +9,6 @@ using Jsky.Manager;
 
 
 public class System0 : MonoBehaviour {
-
-
   public AssetName nextScene = null;
   public AssetName policeScript = null;
   public AssetName studentScript = null;

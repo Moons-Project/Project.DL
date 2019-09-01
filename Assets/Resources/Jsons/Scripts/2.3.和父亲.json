@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "speaker": "立绘.男主.没有阴影_0",
+      "panel": "立绘框男主2",
+      "content": "（在书桌上发呆）",
+      "leftOrRight": 0
+    },{
+      "speaker": "父亲.亮",
+      "panel": "立绘框老爹",
+      "content": "（疲惫的下班回来）",
+      "leftOrRight": 1
+    },{
+      "speaker": "父亲.亮",
+      "panel": "立绘框老爹",
+      "content": "（因为补课费和孩子起了争执）",
+      "leftOrRight": 1
+    }
+  ]
+}

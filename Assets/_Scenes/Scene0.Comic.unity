@@ -400,6 +400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77949b8803186d34f918a77e4f05e202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene:
+    streamingAsset: {fileID: 102900000, guid: 82c9698c32303a24e81168bbe463db8f, type: 3}
+    assetName: Scene0
+  timeLine: {fileID: 582227287}
   messages:
   - gameObject: {fileID: 184268978}
     waitTime: 2.5
@@ -474,10 +478,6 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-  nextScene:
-    streamingAsset: {fileID: 102900000, guid: 82c9698c32303a24e81168bbe463db8f, type: 3}
-    assetName: Scene0
-  timeLine: {fileID: 582227287}
   storyBoardIndex: 0
 --- !u!114 &382476849
 MonoBehaviour:
@@ -492,8 +492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGMAudio:
-    streamingAsset: {fileID: 8300000, guid: f29646b7537d3d94babc4d828a918f88, type: 3}
-    assetName: "\u6B7B\u6B4C"
+    streamingAsset: {fileID: 8300000, guid: 9425436675d80654597cd3b8d16ae800, type: 3}
+    assetName: "\u5E8F\u7AE0BGM"
   PeopleSEAudio:
     streamingAsset: {fileID: 8300000, guid: 4d12f64b1986c3a4fb27e97080dc46df, type: 3}
     assetName: "0894-\u4EBA\u7FA4\u805A\u96C6\u5608\u6742\u58F0"

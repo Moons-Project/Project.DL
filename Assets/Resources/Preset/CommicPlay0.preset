@@ -38,12 +38,38 @@ Preset:
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: messages.Array.data[0].needSlideRight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[0].unityEvent.m_TypeName
+    value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: messages.Array.data[1].gameObject
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: messages.Array.data[1].waitTime
     value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[1].needSlideRight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[1].unityEvent.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[1].unityEvent.m_TypeName
+    value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: messages.Array.data[2].gameObject
@@ -54,12 +80,38 @@ Preset:
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: messages.Array.data[2].needSlideRight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[2].unityEvent.m_TypeName
+    value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: messages.Array.data[3].gameObject
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: messages.Array.data[3].waitTime
     value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[3].needSlideRight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[3].unityEvent.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[3].unityEvent.m_TypeName
+    value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: messages.Array.data[4].gameObject
@@ -70,6 +122,31 @@ Preset:
     value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: jumpScene
+    propertyPath: messages.Array.data[4].needSlideRight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[4].unityEvent.m_PersistentCalls.m_Calls.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: messages.Array.data[4].unityEvent.m_TypeName
+    value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: nextScene.streamingAsset
     value: 
-    objectReference: {fileID: 102900000, guid: 82c9698c32303a24e81168bbe463db8f, type: 3}
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: nextScene.assetName
+    value: Empty
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: timeLine
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: storyBoardIndex
+    value: -1
+    objectReference: {fileID: 0}

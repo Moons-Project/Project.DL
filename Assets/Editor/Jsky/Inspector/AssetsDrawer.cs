@@ -34,6 +34,10 @@ public class AssetsPathOnInspector : PropertyDrawer {
     // Draw label
     assetRect = EditorGUI.PrefixLabel(assetRect,
       GUIUtility.GetControlID(FocusType.Passive), label);
+        // Don't make child fields be indented
+    var indent = EditorGUI.indentLevel;
+    EditorGUI.indentLevel = 0;
+
     EditorGUI.PropertyField(assetRect,
       property.FindPropertyRelative("streamingAsset"), GUIContent.none);
     // 得到property
@@ -46,6 +50,7 @@ public class AssetsPathOnInspector : PropertyDrawer {
     }
     EditorGUI.LabelField(pathRect, "Asset Path :" + assetPath.stringValue);
     // Set indent back to what is was
+    EditorGUI.indentLevel = indent;
     EditorGUI.EndProperty();
   }
 }

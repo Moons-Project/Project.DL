@@ -8,6 +8,7 @@ using UnityEngine.UI;
 namespace Jsky.Manager {
 
   public class StoryBoard : MonoBehaviour {
+
     public Image bgImage;
     public GameObject[] texts;
 

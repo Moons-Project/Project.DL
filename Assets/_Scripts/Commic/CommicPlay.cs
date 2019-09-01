@@ -35,7 +35,7 @@ public class CommicPlay : MonoBehaviour {
   void Start() {
     timeLine.Pause();
     if (storyBoardIndex >= 0) {
-      UIManager.Instance.tipsLayer.storyBoard.PlayStoryText(storyBoardIndex, StartPlayVideo);
+      UIManager.Instance.storyBoard.PlayStoryText(storyBoardIndex, StartPlayVideo);
     } else {
       StartPlayVideo();
     }

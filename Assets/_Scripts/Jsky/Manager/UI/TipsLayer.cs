@@ -8,8 +8,6 @@ namespace Jsky.Manager {
   public class TipsLayer : MonoBehaviour {
     [SerializeField]
     private GameObject HintText = null;
-    [SerializeField]
-    public StoryBoard storyBoard = null;
 
     public Color HintTextColor;
 

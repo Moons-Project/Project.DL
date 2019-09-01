@@ -3,59 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 namespace Jsky.Manager {
 
-[RequireComponent(typeof(Text))]
-public class TypewriterEffect : MonoBehaviour {
-  public Text textComponent;
-  public float delay = 0.2f;
-  private string currentText = "";
-  private int currentIndex = 0;
-  private bool skip = false;
+  [RequireComponent(typeof(Text))]
+  public class TypewriterEffect : MonoBehaviour {
+    public Text textComponent;
+    public float delay = 0.2f;
 
-  [HideInInspector]
-  public bool typing = false;
+    private string currentText = "";
+    private int currentIndex = 0;
+    private bool skip = false;
 
-  public delegate void TypeEndHandler();
-  public event TypeEndHandler TypeEnd;
+    [HideInInspector]
+    public bool typing = false;
 
-  public void SetText(string text, bool append = false) {
-    StopAllCoroutines();
+    public void SetText(string text, bool append = false) {
+      SetText(text, append, () => {});
+    }
 
-    if (!append)
-      textComponent.text = "";
-    currentText = text;
-    currentIndex = 0;
-    typing = true;
-    skip = false;
-    StartCoroutine(Type());
-  }
+    public void SetText(string text, bool append, System.Action callback) {
+      StopAllCoroutines();
 
-  IEnumerator Type() {
-    if (skip) {
+      if (!append)
+        textComponent.text = "";
+      currentText = text;
+      currentIndex = 0;
+      typing = true;
       skip = false;
-      typing = false;
-      textComponent.text += currentText.Substring(currentIndex);
-      if (TypeEnd != null)
-        TypeEnd();
-      yield return null;
-    } else {
-      textComponent.text += currentText[currentIndex++];
-      yield return new WaitForSeconds(delay);
-      if (currentIndex >= currentText.Length) {
-        // Stop Here
+      StartCoroutine(Type(callback));
+    }
+
+    IEnumerator Type(System.Action callback) {
+      if (skip) {
+        skip = false;
         typing = false;
-        if (TypeEnd != null)
-          TypeEnd();
+        textComponent.text += currentText.Substring(currentIndex);
+        callback();
+        yield return null;
       } else {
-        StartCoroutine(Type());
+        textComponent.text += currentText[currentIndex++];
+        yield return new WaitForSeconds(delay);
+        if (currentIndex >= currentText.Length) {
+          // Stop Here
+          typing = false;
+          callback();
+        } else {
+          StartCoroutine(Type(callback));
+        }
       }
     }
-  }
 
-  public void Skip() {
-    skip = true;
+    public void Skip() {
+      skip = true;
+    }
   }
-}
 }

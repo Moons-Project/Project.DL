@@ -32,6 +32,7 @@ RectTransform:
   m_Children:
   - {fileID: 2460106665073806008}
   - {fileID: 4786350406216679755}
+  - {fileID: 1360840862472414567}
   m_Father: {fileID: 1680207790254728098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -512,7 +513,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2261972987660328094}
-  - {fileID: 1360840862472414567}
   m_Father: {fileID: 22210597}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -534,7 +534,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HintText: {fileID: 806121090417812442}
-  storyBoard: {fileID: 845047503046354930}
   HintTextColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
 --- !u!1 &1680207790254728101
 GameObject:
@@ -582,6 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkTachie: {fileID: 2564646971824691919}
   tipsLayer: {fileID: 1286453502928719151}
+  storyBoard: {fileID: 845047503046354930}
 --- !u!1 &2088811844080493358
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 11, y: -371}
+  m_AnchoredPosition: {x: 6, y: -390}
   m_SizeDelta: {x: -350.6, y: -90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &55274296985597351
@@ -930,18 +930,10 @@ MonoBehaviour:
   dialogPanelImage: {fileID: 4450128374901429851}
   dialogTypewriter: {fileID: 6080717204785518895}
   dialogPanel: {fileID: 4589567134129290508}
-  TachieFolder:
-    streamingAsset: {fileID: 102900000, guid: 573e002b42b134b4995a1b5367d03f10, type: 3}
-    assetPath: Assets/Resources/Tachie
-  ScriptsFolder:
-    streamingAsset: {fileID: 102900000, guid: 5c77a59be22826d4ab07ae1ef28a8cdb, type: 3}
-    assetPath: Assets/Resources/Jsons/Scripts
   hightLightColor: {r: 1, g: 1, b: 1, a: 1}
   defaultColor: {r: 1, g: 1, b: 1, a: 0.5}
   hideColor: {r: 1, g: 1, b: 1, a: 0}
   isPlaying: 0
-  playingScript: []
-  playingScriptIndex: 0
 --- !u!1 &4589567134129290508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 0.9490196}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1180,15 +1172,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5299003442297296804}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6296656686658589419}
   - {fileID: 5912616712618516380}
   - {fileID: 2555655199251823309}
-  m_Father: {fileID: 4786350406216679755}
-  m_RootOrder: 1
+  m_Father: {fileID: 22210597}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

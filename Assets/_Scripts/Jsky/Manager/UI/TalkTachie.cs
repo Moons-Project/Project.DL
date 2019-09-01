@@ -26,13 +26,8 @@ namespace Jsky.Manager {
     private Color hideColor = new Color(1f, 1f, 1f, 0f);
 
     public bool isPlaying = false;
-    [SerializeField]
     private Script[] playingScript;
-    [SerializeField]
     private int playingScriptIndex;
-
-    public delegate void DialogEndHandler();
-    public event DialogEndHandler DialogEnd;
 
     public delegate void Finished();
     public event Finished FinishedEvent;
@@ -55,17 +50,9 @@ namespace Jsky.Manager {
       public Script[] data;
     }
 
-    public Script[] ScriptFromJson(string scriptName) {
-      TextAsset textAsset = null;
-      DBManager.Instance.LoadScripts(scriptName, out textAsset);
-      ScriptList scripts = JsonUtility.FromJson<ScriptList>(textAsset.text);
-      return scripts.data;
-    }
-
     void Awake() { }
 
     void Start() {
-      DialogEnd += NextScript;
       FinishedEvent += () => {
         isPlaying = false;
         deactiveDialogPanel();
@@ -73,7 +60,7 @@ namespace Jsky.Manager {
       deactiveDialogPanel();
     }
 
-    public void ShowDialog(string speaker, string panel, string content,
+    private void ShowDialog(string speaker, string panel, string content,
       WhichImage which = WhichImage.LeftImage) {
       activeDialogPanel();
       ShowTachie(speaker, panel, which);
@@ -83,14 +70,14 @@ namespace Jsky.Manager {
       dialogTypewriter.SetText(content);
     }
 
-    public void InitialTachie() {
+    private void InitialTachie() {
       leftImage.sprite = null;
       leftImage.color = hideColor;
       rightImage.sprite = null;
       rightImage.color = hideColor;
     }
 
-    public void ShowTachie(string speaker, string panel, WhichImage which) {
+    private void ShowTachie(string speaker, string panel, WhichImage which) {
       Sprite tachie = null;
       if (DBManager.Instance.TachieDict.ContainsKey(speaker))
         tachie = DBManager.Instance.TachieDict[speaker];
@@ -112,19 +99,19 @@ namespace Jsky.Manager {
       }
     }
 
-    public void ShowDialog(Sprite avatar, string content) {
+    private void ShowDialog(Sprite avatar, string content) {
       activeDialogPanel();
       dialogTypewriter.SetText(content);
     }
 
-    public void deactiveDialogPanel() {
+    private void deactiveDialogPanel() {
       if (dialogPanel.activeSelf)
         dialogPanel.SetActive(false);
       leftImage.color = hideColor;
       rightImage.color = hideColor;
     }
 
-    public void activeDialogPanel() {
+    private void activeDialogPanel() {
       if (!dialogPanel.activeSelf)
         dialogPanel.SetActive(true);
       // leftImage.color = defaultColor;
@@ -139,28 +126,24 @@ namespace Jsky.Manager {
       if (dialogTypewriter.typing) {
         dialogTypewriter.Skip();
       } else {
-        if (DialogEnd != null) {
-          DialogEnd();
-        }
+        NextScript();
       }
     }
 
-    // public void SystemDialog(string content) {
-    //   ShowDialog(null, content);
-    //   DialogEnd += SystemDialogHide;
-    // }
-
-    // private void SystemDialogHide() {
-    //   this.DialogEnd -= SystemDialogHide;
-    //   HideDialog();
-    // }
-
     public void PlayScript(string scriptName) {
       Debug.Log("Playing " + scriptName);
+
+      Func<string, Script[]> ScriptFromJson = (string script) => {
+        TextAsset textAsset = null;
+        DBManager.Instance.LoadScripts(script, out textAsset);
+        ScriptList scripts = JsonUtility.FromJson<ScriptList>(textAsset.text);
+        return scripts.data;
+      };
+
       PlayScript(ScriptFromJson(scriptName));
     }
 
-    public void PlayScript(Script[] scripts) {
+    private void PlayScript(Script[] scripts) {
       isPlaying = true;
       playingScript = scripts;
       playingScriptIndex = 0;
@@ -168,7 +151,7 @@ namespace Jsky.Manager {
       NextScript();
     }
 
-    public void NextScript() {
+    private void NextScript() {
       if (!isPlaying) {
         return;
       }
@@ -198,7 +181,7 @@ namespace Jsky.Manager {
     }
 
     void OnDisable() {
-      DialogEnd -= NextScript;
+      // DialogEnd -= NextScript;
     }
   }
 

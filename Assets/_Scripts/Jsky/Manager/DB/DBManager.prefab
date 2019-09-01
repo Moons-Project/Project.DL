@@ -43,6 +43,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deeeaf1a1d315634099de11c4ecd547a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  folders:
+  - type: 0
+    folder:
+      streamingAsset: {fileID: 102900000, guid: a32d0aa8bd4a9d14aa25d8d7b343ebdb,
+        type: 3}
+      assetPath: Assets/Resources/Music/BGM
+  - type: 1
+    folder:
+      streamingAsset: {fileID: 102900000, guid: 2e2312e6c783b1445a491cbca8f48aef,
+        type: 3}
+      assetPath: Assets/Resources/Music/SE
+  - type: 2
+    folder:
+      streamingAsset: {fileID: 102900000, guid: 573e002b42b134b4995a1b5367d03f10,
+        type: 3}
+      assetPath: Assets/Resources/Tachie
+  - type: 3
+    folder:
+      streamingAsset: {fileID: 102900000, guid: 5c77a59be22826d4ab07ae1ef28a8cdb,
+        type: 3}
+      assetPath: Assets/Resources/Jsons/Scripts
   BGMFolder:
     streamingAsset: {fileID: 102900000, guid: a32d0aa8bd4a9d14aa25d8d7b343ebdb, type: 3}
     assetPath: Assets/Resources/Music/BGM

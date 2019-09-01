@@ -1,35 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Jsky.Common;
+using Jsky.Manager;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
-using Jsky.Common;
-using Jsky.Manager;
+[System.Serializable]
+public struct ComicMessage {
+  public GameObject gameObject;
+  public float waitTime;
+  public bool needSlideRight;
+  public UnityEvent unityEvent;
+}
 
 public class CommicPlay : MonoBehaviour {
-  [System.Serializable]
-  public struct ComicMessage {
-    public GameObject gameObject;
-    public float waitTime;
-    public bool needSlideRight;
-    public UnityEvent unityEvent;
-  }
 
-  public ComicMessage[] messages;
   public AssetName nextScene;
-
   public PlayableDirector timeLine;
+  public ComicMessage[] messages;
 
-  [SerializeField]
-  private bool isPlayVideoPaused => !InputManager.Instance.SlideRightAction;
-
+  public int storyBoardIndex = -1;
+  [Header("一些常量")]
   public static float kPauseTime = 1.0f;
   public static float kPlayerPauseTime = 0.5f;
   public static float kMaxPauseTime = 5.0f;
-  public int storyBoardIndex = -1;
+
+  private bool isPlayVideoPaused => !InputManager.Instance.SlideRightAction;
 
   // Start is called before the first frame update
   void Start() {
@@ -45,7 +44,6 @@ public class CommicPlay : MonoBehaviour {
     StartCoroutine(PlayVideo());
   }
 
-
   IEnumerator PlayVideo() {
     timeLine.Play();
     foreach (var message in messages) {
@@ -55,15 +53,15 @@ public class CommicPlay : MonoBehaviour {
       // pasu logic
       if (!message.needSlideRight) {
         if (!message.Equals(messages[0]))
-        yield return new WaitForSeconds(kPauseTime);
+          yield return new WaitForSeconds(kPauseTime);
       } else {
         // // One way to pause
         // while(isPaused){ yield return null; }
         var timeCount = 0.0f;
         var playTimeCount = 0.0f;
         // 当有足够的剩余时间且滑动时间不满足
-        while (timeCount + (kPauseTime - playTimeCount) < kMaxPauseTime && 
-               kPlayerPauseTime - playTimeCount > 0) {
+        while (timeCount + (kPauseTime - playTimeCount) < kMaxPauseTime &&
+          kPlayerPauseTime - playTimeCount > 0) {
           if (isPlayVideoPaused) {
             timeLine.Pause();
           } else {

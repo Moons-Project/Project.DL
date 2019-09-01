@@ -1,46 +1,48 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Jsky.Common;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoryBoard : MonoBehaviour {
-  public Image bgImage;
-  public GameObject[] texts;
+namespace Jsky.Manager {
 
-  public delegate void FinishDelegate();
-  public FinishDelegate FinishEvent;
+  public class StoryBoard : MonoBehaviour {
+    public Image bgImage;
+    public GameObject[] texts;
 
-  void Awake() {
-    ResetStoryBoard();
-    FinishEvent += ResetStoryBoard;
-  }
-
-  void ResetStoryBoard() {
-    bgImage.color = Color.clear;
-    foreach(var text in texts) {
-      text.SetActive(false);
+    void Awake() {
+      ResetStoryBoard();
     }
-  }
 
-  public void PlayStoryText(int index) {
-    bgImage.color = Color.black;
-    var targetText = texts[index];
-    targetText.SetActive(true);
-    for(int i = 0; i < targetText.transform.childCount; i++) {
-      var subWords = targetText.transform.GetChild(i);
-      subWords.gameObject.SetActive(false);
+    void ResetStoryBoard() {
+      bgImage.color = Color.clear;
+      foreach (var text in texts) {
+        text.SetActive(false);
+      }
     }
-    StartCoroutine(ShowSubWords(targetText, 2.0f));
-  }
 
-  IEnumerator ShowSubWords(GameObject targetText, float time) {
-    for(int i = 0; i < targetText.transform.childCount; i++) {
-      var subWords = targetText.transform.GetChild(i);
-      subWords.gameObject.SetActive(true);
+    public void PlayStoryText(int index, Action callback) {
+      bgImage.color = Color.black;
+      var targetText = texts[index];
+      targetText.SetActive(true);
+      for (int i = 0; i < targetText.transform.childCount; i++) {
+        var subWords = targetText.transform.GetChild(i);
+        subWords.gameObject.SetActive(false);
+      }
+      StartCoroutine(ShowSubWords(targetText, 2.0f, callback));
+    }
+
+    IEnumerator ShowSubWords(GameObject targetText, float time, Action callback) {
+      for (int i = 0; i < targetText.transform.childCount; i++) {
+        var subWords = targetText.transform.GetChild(i);
+        subWords.gameObject.SetActive(true);
+        yield return new WaitForSeconds(time);
+      }
       yield return new WaitForSeconds(time);
-    }
-    yield return new WaitForSeconds(time);
 
-    FinishEvent();
+      ResetStoryBoard();
+      callback();
+    }
   }
 }

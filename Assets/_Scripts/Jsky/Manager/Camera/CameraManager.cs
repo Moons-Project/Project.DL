@@ -6,7 +6,11 @@ using UnityEngine;
 
 namespace Jsky.Manager {
 
-  public class CameraManager : ManagerBase<CameraManager> {
+  public interface ICameraManager {
+
+  }
+
+  public class CameraManager : ManagerBase<CameraManager>, ICameraManager{
 
   }
 

@@ -34,9 +34,8 @@ public class CommicPlay : MonoBehaviour {
   // Start is called before the first frame update
   void Start() {
     timeLine.Pause();
-    UIManager.Instance.tipsLayer.storyBoard.FinishEvent += StartPlayVideo;
     if (storyBoardIndex >= 0) {
-      UIManager.Instance.tipsLayer.storyBoard.PlayStoryText(storyBoardIndex);
+      UIManager.Instance.tipsLayer.storyBoard.PlayStoryText(storyBoardIndex, StartPlayVideo);
     } else {
       StartPlayVideo();
     }
@@ -49,8 +48,6 @@ public class CommicPlay : MonoBehaviour {
 
   IEnumerator PlayVideo() {
     timeLine.Play();
-    UIManager.Instance.tipsLayer.storyBoard.FinishEvent -= StartPlayVideo;
-
     foreach (var message in messages) {
       // var player = message.gameObject.GetComponent<VideoPlayer>();
       // player.Play(); // player.Pause();

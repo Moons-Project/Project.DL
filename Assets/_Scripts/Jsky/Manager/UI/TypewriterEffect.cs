@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+namespace Jsky.Manager {
+
 [RequireComponent(typeof(Text))]
 public class TypewriterEffect : MonoBehaviour {
   public Text textComponent;
@@ -54,4 +57,5 @@ public class TypewriterEffect : MonoBehaviour {
   public void Skip() {
     skip = true;
   }
+}
 }

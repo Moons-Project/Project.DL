@@ -6,6 +6,10 @@ using UnityEngine;
 
 namespace Jsky.Manager {
 
+  public interface IInputManager {
+    
+  }
+
   public class InputManager : ManagerBase<InputManager> {
     public bool MouseMoveRight => Input.GetAxis("Mouse X") > 0;
     public bool MouseMoveTop => Input.GetAxis("Mouse Y") > 0;

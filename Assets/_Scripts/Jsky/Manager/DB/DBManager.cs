@@ -5,11 +5,18 @@ using UnityEngine;
 
 namespace Jsky.Manager {
 
-  public class DBManager : ManagerBase<DBManager> {
+  public interface IDBManager {
+    
+  }
+
+  public class DBManager : ManagerBase<DBManager>, IDBManager{
     [SerializeField]
     private AssetPath BGMFolder = null;
+    [SerializeField]
     private AssetPath SEFolder = null;
+    [SerializeField]
     private AssetPath TachieFolder = null;
+    [SerializeField]
     private AssetPath ScriptsFolder = null;
 
     public Dictionary<string, AudioClip> BGMDict =
